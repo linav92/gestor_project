@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  http_basic_authenticate_with name: "desafiovamoscontodo", password: "XAHTJEAS23123%23", only: :dashboard
   def index
   end
 
@@ -17,6 +18,6 @@ class ProjectsController < ApplicationController
       start_on: params[:start_on], 
       finish_on: params[:finish_on], 
       state: params[:state])
-@project.save
+      @project.save
   end
 end
