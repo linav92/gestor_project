@@ -1,0 +1,38 @@
+<nav class="navbar navbar-light bg-light justify-content-between">
+    <h1>Dashboard de Administración<a class="navbar-brand"></a></h1>
+    <form class="form-inline">
+        <select name="state" id="state" class="form-control">  
+            <option value="0">Propuesta</option>
+            <option value="1">En progreso</option>
+            <option value="2">Terminado</option>
+        </select>
+        <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
+    </form>
+</nav>
+<table class="table">
+<div class="row">
+    <div class="col -md-3"> 
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Fecha de comienzo</th>
+            <th scope="col">Fecha de finalización</th>
+            <th scope="col">Estado</th>
+        </tr>
+        <% @projects.each do |project| %>
+        <tr>
+        
+            <td><%= project.name %></td>
+            <td><%= project.description%></td>
+            <td><%= project.start_on %></td>
+            <td><%= project.finish_on %></td>
+            <td><%= project.state%></td>
+        <% end%>
+        </tr>
+   
+        
+    </div>
+</div>
+</table>
+<p>Crea un nuevo proyecto <%=link_to 'aquí', root_path %> </p>
+

@@ -1,0 +1,29 @@
+<h1>Crear Proyectos</h1>
+
+<%= form_with(model: @project, url: "/projects/create", local: true) do |f|%>
+    <div class=>
+        <%= f.label :name, 'Nombre' %>
+        <%= f.text_field :name, placeholder: 'Ingrese nombre', class: 'form-control' %>
+    </div>
+    <div class="form-group">
+        <%= f.label :description, 'Descripción' %>
+        <%= f.text_field :description, placeholder: 'Ingrese la descripción', class: 'form-control' %>
+    </div>
+    <div class="form-group">
+        <%= f.label :start_on, 'Fecha de inicio' %>
+        <%= f.date_field :start_on, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+        <%= f.label :finish_on, 'Fecha de finalización' %>
+        <%= f.date_field :finish_on, class: 'form-control' %>
+    </div>
+
+
+    <div class="form-group">
+        <%= f.label :state, 'Estado' %>
+        <%= f.select :state, options_for_select([['Propuesta','Propuesta'],['En progreso','En_progreso'],['Terminado','Terminado']] ), {include_blank: true}, class: 'form-control' %>
+
+    </div>
+
+     <%= f.submit 'Guardar', class: 'btn btn-info' %>
+ <% end %>

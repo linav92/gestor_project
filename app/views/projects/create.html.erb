@@ -1,0 +1,16 @@
+<% if @project.errors.any? %>
+    <div id="error_explanation">
+        <h2>
+            <%= pluralize(@project.errors.count, "error") %>
+            prohibited this post from being saved:
+        </h2>
+        <ul>
+            <% @project.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+    </div>
+    <p> <%=link_to 'Intenta de nuevo', root_path %></p> 
+<% else %>
+    <h1>Se ha creado un proyecto con éxito, <%=link_to 'visualizalo aquí', projects_dashboard_path %></h1> 
+<% end %>
